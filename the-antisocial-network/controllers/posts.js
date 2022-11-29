@@ -7,6 +7,9 @@ module.exports = {
 
 function index(req, res){
     Post.find({}, function(err, posts){
-        res.render('posts/index', {title: 'Posts'})
+        if(err){
+            console.log(err)
+        }
+        res.render('posts/index', {title:'Posts', posts})
     })
 }

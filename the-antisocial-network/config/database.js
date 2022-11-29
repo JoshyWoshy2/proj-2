@@ -7,7 +7,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 const db = mongoose.connection
 
-console.log(process.env.DATABASE_URL)
+// console.log(process.env.DATABASE_URL)
 
 db.on('error', function (error){
     console.log(error)
