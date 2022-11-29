@@ -27,7 +27,8 @@ function(accessToken, refreshToken, profile,cb){
 }))
 
 passport.serializeUser(function(id,done){
-    done(null, user.id)
+    console.log(id)
+    done(null, id)
 })
 
 passport.deserializeUser(function(id,done){

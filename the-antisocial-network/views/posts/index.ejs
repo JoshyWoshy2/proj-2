@@ -2,8 +2,8 @@
 <%- include('../partials/nav.ejs')%>
 
 <tbody>
-  <% posts.forEach(function(m) { %>
-      <div class="row">
+  <div class="row">
+        <% posts.forEach(function(m) { %>
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
@@ -13,11 +13,11 @@
             </div>
             <div class="card-action">
               <a href="#">Read Post</a>
-              <a href="#">user</a>
+              <div><%=m.name%></div>
             </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </tbody>
 <%- include('../partials/footer.ejs')%>

@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    // posts: [postSchema],
     googleId: String
 },{
     timestamps: true

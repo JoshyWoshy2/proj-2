@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-// const passport = require('passport')
+const passport = require('passport')
 // const dburl = process.env.DATABASE_URL
 
 
@@ -14,13 +14,13 @@ router.get('/', function(req, res, next) {
 //   {scope: ['profile', 'email']}
 // ))
 
-// router.get('/oauth2callback', passport.authenticate(
-//   'google',
-//   {
-//     successRedirect: '/posts',
-//     failureRedirect: '/posts'
-//   }
-// ))
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {failureRedirect: '/posts'}
+),
+function(req,res){
+  res.redirect('/posts')
+})
 
 // router.get('/logout', function(req, res){
 //   req.logout()
