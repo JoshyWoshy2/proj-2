@@ -1,5 +1,22 @@
-<%- include('../header.ejs')%>
-<%- include('../nav.ejs')%>
+<%- include('../partials/header.ejs')%>
+<%- include('../partials/nav.ejs')%>
+<div class="row">
+    <form class="col s12" id="new-form" action="/posts" method="POST">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Title" id="first_name" type="text" class="validate" name="title">
+          <label for="title"> Title </label>
+        </div>
+      </div>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" name=""></textarea>
+              <label for="textarea1">Post Goes Here</label>
+            </div>
+          </div>
+        </form>
+      </div>
 
-
-<%- include('../footer.ejs')%>
+<%- include('../partials/footer.ejs')%>

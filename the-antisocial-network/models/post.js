@@ -6,7 +6,10 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    content:{type: String},
+    content:{
+        type: String,
+        required: true
+    },
     release:{
         type: Number,
         default: function(){

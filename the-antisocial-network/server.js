@@ -11,8 +11,8 @@ require('dotenv').config()
 console.log(process.env.DATABASE_URL)
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var postsRouter = require('./routes/posts')
+const usersRouter = require('./routes/users');
+const postsRouter = require('./routes/posts');
 
 var app = express();
 

@@ -18,7 +18,7 @@ function index(req, res){
 }
 
 function newPost(req,res){
-    res.render('posts/new', {title: 'New Post'})
+    res.render('posts/new', {title: 'New Post', user: req.user})
 }
 
 function create(req,res){
