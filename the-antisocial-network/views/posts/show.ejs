@@ -1,5 +1,18 @@
-<%- include('../header.ejs')%>
-<%- include('../nav.ejs')%>
+<%- include('../partials/header.ejs')%>
+<%- include('../partials/nav.ejs')%>
 
 
-<%- include('../footer.ejs')%>
+<p><%= title %></p>
+<p><%=post%> </p>
+<% if (name === user?.name){%>
+<form class="col s12" id="new-form" action="/posts/<%=id%>?_method=DELETE" method="POST">
+<button class="btn waves-effect waves-light" type="submit" name="delete">Delete Post
+  </button>
+</form>
+<%}%>
+<form class="col s12" id="new-form" action="/posts/<%=id%>/edit" method="GET">
+  <button class="btn waves-effect waves-light" type="submit" name="update">Update Post
+    </button>
+  </form>
+
+<%- include('../partials/footer.ejs')%>

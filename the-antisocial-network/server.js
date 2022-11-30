@@ -8,7 +8,7 @@ var logger = require('morgan');
 require('./config/database')
 require('./config/passport')
 require('dotenv').config()
-console.log(process.env.DATABASE_URL)
+const methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -32,6 +32,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
