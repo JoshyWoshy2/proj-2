@@ -1,0 +1,15 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="../../posts" class="brand-logo">The Antisocial Network</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/posts/new">New Post</a></li>
+        <li>
+          <% if (user){ %> 
+            <a href="../../users/logout">Log out</a>
+            <% } else {%>
+              <a href="../../users/auth/google">Log in</a>
+          <% }%>
+        </li>
+      </ul>
+    </div>
+  </nav>

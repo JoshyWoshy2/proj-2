@@ -7,6 +7,8 @@ module.exports = {
     create,
     show,
     delete: deleteOne,
+    edit,
+    update
 }
 
 function index(req, res){
@@ -29,7 +31,6 @@ function create(req,res){
     }
     const post = new Post({...req.body, name: req.user.name})
     post.save(function(err){
-        console.log(post)
         if (err) return res.redirect('/posts/new')
         res.redirect(`/posts/${post._id}`)
     })
@@ -37,8 +38,6 @@ function create(req,res){
 
 function show(req,res){
     Post.findById(req.params.id, function(err, post){
-        console.log(err)
-        console.log(post.name)
         res.render('posts/show',{
             title: post.title,
             id: post._id,
@@ -50,14 +49,42 @@ function show(req,res){
 }
 
 function deleteOne(req, res) {
-    // Note the cool "dot" syntax to query on the property of a subdoc
     Post.findById(req.params.id, function(err, post) {
       if (err)console.log(err)  
       post.remove();
-      // Save the updated book
       post.save(function(err) {
-        // Redirect back to the book's show view
         res.redirect(`/posts`);
       });
     });
-  }
+}
+  
+function edit(req,res){
+    Post.findById(req.params.id, function(err, post){
+        if(err)console.log(err)
+        console.log(post)
+        res.render('posts/edit',{
+            title: post.title,
+            id: post._id,
+            post: post.content,
+            name: post.name,
+            user: req.user
+        })
+    })
+}
+
+function update(req, res) {
+    console.log(req.body)
+    Post.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        content: req.body.content
+    },
+    function(err, post) {
+        console.log(err)
+        console.log(post)
+      post.save(function(err) {
+        console.log(post)
+        if(err)console.log(err)
+        res.redirect(`/posts`);
+        });
+    });
+}
